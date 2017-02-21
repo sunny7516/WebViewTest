@@ -1,0 +1,60 @@
+
+<!-- 화면구조, 내용담당, html
+ 문서(document)
+ html5 인식 (브라우저)
+ -->
+<html>
+<!-- 메타 정보:문서를 설명하는 부가 정보 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <style>
+      /* css:레이아웃, 반응형처리, 스타일링 처리, 애니메이션 처리 */
+      /* 젃용 순서 external css -> internal css -> inline css */
+      /* h1 : css selector (문서안에 특정요소를 찾는 방법) */
+      h1 { color:red; }
+      #special { color:blue; }
+      .a { color:pink; }
+    </style>
+  <script>
+       /* 젃용 순서 external js -> internal js -> inline js */
+      // 브라우저와 사용자간의 상호작용, 이벤트 처리, 통신 등등 담당, 안드로이드, 아이폰과 통신
+      alert("hi");
+      var nRtn = prompt("hi");
+      console.log(nRtn);
+      window.onload=function(){
+          alert("문서가 모두 로딩되었다 => DOM 모델 => 조작하는 것은 (XML에서 나옴)");
+          // 1. 찾는다 -> 조작한다
+          document.querySelector("p").innerHTML = "점심시간";
+          // jquery : $("p.a").html("점심시간");
+          // 2. 통신 ajax(); -> 서버와 통신 -> 비동기 => 화면은 그대로 내용이 변경, 자동완성
+      };
+    </script>
+</head>
+<!-- 화면에 보이는 모든 요소 -->
+<body>
+<h1>hi</h1>
+<!-- id 속성은 문서내에서 고유해야  한다. -->
+<h1 id="special" class="a">hi2</h1>
+<h1 class="a">hi3</h1>
+<p class="a" style="color:yellow;">hello</p>
+<p>5345645</p>
+<form method="get" action="https://ec2-52-78-39-45.ap-northeast-2.compute.amazonaws.com/categorize">
+  <input type="text" name="currentPage"><br>
+  <input type="text" name="itemsPerPage"><br>
+  <input type="text" name="categorize_id"><br>
+  <input type="text" name="s_users_profile"><br>
+  <input type="submit" value="전송">
+</form>
+<a href="a.jsp">링크</a>
+<script>
+      // 문서로딩인 끝나서 문서 조작이 용이하다
+      function toast(msg){
+      //my에 있는 showToast 메소드에 접근
+        window.my.showToast(msg);
+      }
+    </script>
+<!-- toast함수에 매개변수 goodjob이라는 msg 전달 -->
+<button onclick="toast('goodjob!')">토스트</button>
+</body>
+</html>
